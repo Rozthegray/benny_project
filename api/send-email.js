@@ -14,23 +14,19 @@ export default async function handler(req, res) {
       template_params: templateParams
     };
 
-    const emailResponse = await fetch("https://api.emailjs.com/api/v1.0/email/send", {
+    const response = await fetch("https://api.emailjs.com/api/v1.0/email/send", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload)
     });
 
-    if (!emailResponse.ok) {
-      const errText = await emailResponse.text();
+    if (!response.ok) {
+      const errText = await response.text();
       return res.status(500).json({ error: "Email sending failed", details: errText });
     }
 
     return res.status(200).json({ success: true });
-
   } catch (error) {
-    return res.status(500).json({
-      error: "Server error",
-      details: error.message
-    });
+    return res.status(500).json({ error: "Server error", details: error.message });
   }
 }

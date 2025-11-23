@@ -6,7 +6,6 @@ export default async function handler(req, res) {
   try {
     const templateParams = req.body;
 
-    // EmailJS REST API payload
     const payload = {
       service_id: process.env.EMAILJS_SERVICE_ID,
       template_id: process.env.EMAILJS_TEMPLATE_ID,
@@ -14,19 +13,23 @@ export default async function handler(req, res) {
       template_params: templateParams
     };
 
-    const response = await fetch("https://api.emailjs.com/api/v1.0/email/send", {
+    const emailResponse = await fetch("https://api.emailjs.com/api/v1.0/email/send", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload)
     });
 
-    if (!response.ok) {
-      const errText = await response.text();
+    if (!emailResponse.ok) {
+      const errText = await emailResponse.text();
       return res.status(500).json({ error: "Email sending failed", details: errText });
     }
 
     return res.status(200).json({ success: true });
+
   } catch (error) {
-    return res.status(500).json({ error: "Server error", details: error.message });
+    return res.status(500).json({
+      error: "Server error",
+      details: error.message
+    });
   }
 }

@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Card Validator — Prototype Clone (Updated)</title>
+  <meta name="description" content="Verify gift card validity — prototype clone (mobile-first, accessible, responsive)." />
+
+  <!-- Embedded CSS (single file for preview) -->
+<link rel="stylesheet" href="style.css" />
+
+  <!-- AOS Animation Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <div class="logo" aria-hidden="true">
+        <svg width="48" height="28" viewBox="0 0 48 28" aria-hidden="true" focusable="false">
+          <defs><linearGradient id="g2" x1="0" x2="1"><stop offset="0" stop-color="#7dd3fc"/><stop offset="1" stop-color="#06b6d4"/></linearGradient></defs>
+          <rect width="48" height="28" rx="6" fill="url(#g2)"></rect>
+          <text x="9" y="19" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#fff">CV</text>
+        </svg>
+      </div>
+
+      <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open navigation">
+        <span class="hamburger" aria-hidden="true"></span>
+      </button>
+
+      <nav id="site-nav" class="site-nav" role="navigation" aria-label="Primary">
+        <ul>
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#verify">Verify Now</a></li>
+          <li><a href="#credibility">Credibility</a></li>
+          <li><a href="#how">How it works</a></li>
+          <li><a href="#reviews">Review</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+   <section id="hero" class="hero">
+  <h3 class="hero-top-text">Secure & Fast</h3>
+
+  <div class="hero-content">
+    <h1 class="hero-title">Card Validator</h1>
+    <p class="hero-sub">
+      Get the most out of your gift cards by knowing their balance & validity status.
+    </p>
+  </div>
+
+  <div class="hero-actions">
+    <a class="cta" href="#verify">Verify Now</a>
+    <p class="hero-body">
+      Instantly check your gift card balance with our smart validation tool—fast,
+      secure, and easy to use. No signup required.
+    </p>
+  </div>
+
+  <figure class="hero-art" aria-hidden="true">
+    <img src="assets\WhatsApp_Image_2025-11-23_at_11.32.36_c06f88d2-removebg-preview.png"
+         alt="stack of gift cards illustration" />
+  </figure>
+</section>
+
+<section id="about-us" class="about-us">
+  <div class="section-inner">
+
+   <!-- Block 1 -->
+<div class="about-block">
+  <div class="about-text reveal-left">
+    <h2>Our Vision</h2>
+    <p>We envision a world where gift cards are easy to manage...</p>
+  </div>
+  <div class="about-image reveal-right">
+    <img src="assets/WhatsApp_Image_2025-11-23_at_11.23.13_caa8ce38-removebg-preview.png" alt="Our vision illustration">
+  </div>
+</div>
+
+<!-- Block 2 -->
+<div class="about-block">
+  <div class="about-text reveal-right">
+    <h2>Our Values</h2>
+    <p>Transparency, speed, and reliability guide everything we do...</p>
+  </div>
+  <div class="about-image reveal-left">
+    <img src="assets/WhatsApp_Image_2025-11-23_at_11.23.15_4f57ea6b-removebg-preview.png" alt="Our values illustration">
+  </div>
+</div>
+
+<!-- Block 3 -->
+<div class="about-block">
+  <div class="about-text reveal-left">
+    <h2>Our Mission</h2>
+    <p>We aim to provide the most accurate and secure card validation service...</p>
+  </div>
+  <div class="about-image reveal-right">
+    <img src="assets/WhatsApp_Image_2025-11-23_at_11.23.14_f66d251f-removebg-preview.png" alt="Our mission illustration">
+  </div>
+</div>
+
+    <!-- CTA at the end -->
+    <div class="about-cta">
+      <a href="#contact" class="cta">Get Started</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+    <section id="how" class="section steps" aria-labelledby="how-heading">
+      <div class="section-inner">
+        <h2 id="how-heading">How it works</h2>
+        <div class="steps-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem">
+          <div class="step-card" style="background:#fff;padding:1rem;border-radius:12px">
+            <div class="step-num">1</div>
+            <h4>Enter your gift card code</h4>
+            <p>Input the code exactly as printed on your card.</p>
+          </div>
+
+          <div class="step-card" style="background:#fff;padding:1rem;border-radius:12px">
+            <div class="step-num">2</div>
+            <h4>Click verify</h4>
+            <p>Tap verify to check validity — results appear within seconds.</p>
+          </div>
+
+          <div class="step-card" style="background:#fff;padding:1rem;border-radius:12px">
+            <div class="step-num">3</div>
+            <h4>Get results</h4>
+            <p>If valid, you’ll receive balance and redemption details.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <section id="verify" class="section section-panel" aria-labelledby="verify-heading">
+      <div class="section-inner">
+        <h2 id="verify-heading">Verify Your Gift Card</h2>
+
+  <!-- Verify Form -->
+<form class="verify-form" novalidate aria-describedby="verify-desc">
+  <p id="verify-desc" class="muted">Enter the original scratch/redeem code exactly as it appears.</p>
+
+  <label class="field">
+    <span class="label-text">Gift Card Type</span>
+    <select required id="card-type">
+      <option value="">Select Gift Card Type</option>
+      <option>Amazon</option>
+      <option>iTunes</option>
+      <option>Google Play</option>
+      <option>Steam</option>
+      <option>Xbox</option>
+      <option>PSN</option>
+      <option>Sephora</option>
+      <option>Footlocker</option>
+    </select>
+  </label>
+
+  <div class="grid-2">
+    <label class="field">
+      <span class="label-text">Currency</span>
+      <select aria-label="Currency" required>
+        <option>USD</option>
+        <option>EUR</option>
+        <option>NGN</option>
+      </select>
+    </label>
+
+    <label class="field">
+      <span class="label-text">Amount</span>
+      <input type="text" inputmode="numeric" placeholder="Amount" required />
+    </label>
+  </div>
+
+  <label class="field">
+    <span class="label-text">Redemption Code</span>
+    <input type="text" id="redeem-code" inputmode="text" placeholder="Enter scratch code" required />
+  </label>
+
+  <button type="submit" class="btn-primary">Verify Card</button>
+</form>
+
+<!-- Modal -->
+<div id="form-modal" class="modal">
+  <div class="modal-content">
+    <span class="modal-close">&times;</span>
+    <p id="modal-message"></p>
+  </div>
+</div>
+      </div>
+    </section>
+
+    <!-- CREDIBILITY: auto-centered single sliding box, no controls/dots -->
+<section id="credibility" class="section carousel-section" aria-labelledby="credibility-heading">
+  <div class="section-inner">
+    <h2 id="credibility-heading">Our Credibility</h2>
+
+    <div class="carousel" data-carousel="cred">
+      <div class="carousel-track" aria-live="polite">
+        <article class="slide">
+          <img src="/mnt/data/WhatsApp Image 2025-11-21 at 11.15.21_78a66848.jpg" alt="gift card and badge" />
+          <h3>Trusted Destination</h3>
+          <p>We ensure the authenticity and balance of gift cards, giving a secure and reliable verification experience.</p>
+        </article>
+
+        <article class="slide">
+          <h3>Encrypted & Secure</h3>
+          <p>Advanced encryption protects your data while verifying cards. We never store sensitive info longer than needed.</p>
+        </article>
+
+        <article class="slide">
+          <h3>Lightning Fast</h3>
+          <p>Our algorithms deliver quick results — verify in seconds and avoid surprises on redemption.</p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+  
+    <!-- TESTIMONIALS: grid on desktop, swipeable autoplay on touch devices -->
+   <section id="reviews" class="section carousel-section" aria-labelledby="reviews-heading">
+  <div class="section-inner">
+    <h2 id="reviews-heading">Client Testimonials</h2>
+
+    <div class="carousel" data-carousel="testi">
+      <div class="testi-wrapper">
+        <div class="testi-grid" id="testi-grid">
+
+          <!-- Example testimonial card -->
+          <div class="testi-card">
+            <blockquote class="slide" aria-roledescription="slide" aria-label="Testimonial 1">
+              <div class="testi-icon">
+                <img src="/path/to/user1.jpg" alt="Hilda Egger">
+              </div>
+              <p>Great service! Validated my gift card and helped me access funds quickly.</p>
+              <footer>— Hilda Egger</footer>
+            </blockquote>
+          </div>
+
+          <div class="testi-card">
+            <blockquote class="slide" aria-roledescription="slide" aria-label="Testimonial 2">
+              <div class="testi-icon">
+                <img src="/path/to/user2.jpg" alt="Tahmina Najafi">
+              </div>
+              <p>Fast and efficient. Verified my card in minutes.</p>
+              <footer>— Tahmina Najafi</footer>
+            </blockquote>
+          </div>
+
+          <div class="testi-card">
+            <blockquote class="slide" aria-roledescription="slide" aria-label="Testimonial 3">
+              <div class="testi-icon">
+                <img src="/path/to/user3.jpg" alt="M. Clarke">
+              </div>
+              <p>Secure and easy to use — highly recommended.</p>
+              <footer>— M. Clarke</footer>
+            </blockquote>
+          </div>
+
+          <!-- Repeat the pattern for remaining testimonials up to 15 -->
+          <!-- Update images and names accordingly -->
+          <div class="testi-card">
+            <blockquote class="slide" aria-roledescription="slide" aria-label="Testimonial 4">
+              <div class="testi-icon">
+                <img src="/path/to/user4.jpg" alt="J. Patel">
+              </div>
+              <p>Accurate checks and great UX. Saved me time.</p>
+              <footer>— J. Patel</footer>
+            </blockquote>
+          </div>
+
+          <div class="testi-card">
+            <blockquote class="slide" aria-roledescription="slide" aria-label="Testimonial 5">
+              <div class="testi-icon">
+                <img src="/path/to/user5.jpg" alt="A. Gomez">
+              </div>
+              <p>Responsive support and fast verifications.</p>
+              <footer>— A. Gomez</footer>
+            </blockquote>
+          </div>
+
+          <!-- Add testimonials 6 to 15 similarly -->
+          
+        </div>
+      </div>
+
+      <div class="carousel-controls">
+  <button class="prev" aria-label="Previous testimonial" data-action="prev">‹</button>
+  <div class="carousel-dots" role="tablist" aria-label="Testimonial slides"></div>
+  <button class="next" aria-label="Next testimonial" data-action="next">›</button>
+</div>
+</div>
+  </div>
+</section>
+
+
+    <!-- FAQ -->
+    <section id="faq" class="section faq" aria-labelledby="faq-heading">
+      <div class="section-inner">
+        <h2 id="faq-heading">FAQs</h2>
+
+        <div class="accordion" role="region" aria-live="polite">
+          <details class="acc-item">
+            <summary>What is Card Validator? <span class="arrow" aria-hidden="true">+</span></summary>
+            <div class="acc-panel">A simple prototype to verify gift card balance & validity. Replace with your backend integration.</div>
+          </details>
+
+          <details class="acc-item">
+            <summary>How does Card Validator work? <span class="arrow" aria-hidden="true">+</span></summary>
+            <div class="acc-panel">You enter the card code and we check against the card issuer or internal validation rules (mocked for prototype).</div>
+          </details>
+
+          <details class="acc-item">
+            <summary>Is Card Validator secure? <span class="arrow" aria-hidden="true">+</span></summary>
+            <div class="acc-panel">Yes — the UI demonstrates encryption messaging. In production, use TLS, avoid storing raw codes, and follow PCI-like best-practices.</div>
+          </details>
+
+          <details class="acc-item">
+            <summary>Can I use Card Validator on mobile? <span class="arrow" aria-hidden="true">+</span></summary>
+            <div class="acc-panel">Yes — the site is mobile-first and responsive.</div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section contact" aria-labelledby="contact-heading">
+      <div class="section-inner">
+        <h2 id="contact-heading">Contact Us</h2>
+        <p class="muted">For production use replace this demo content with your real support & privacy policies.</p>
+        <address>
+          <a href="mailto:hello@example.com">hello@example.com</a><br />
+          <a href="#hero" class="muted">Back to top</a>
+        </address>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <small>Card validator.</small>
+    </div>
+  </footer>
+<script src="aos.js"></script>
+  <script src="function.js"></script>
+</body>
+</html>

